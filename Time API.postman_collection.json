@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "b92c7337-bcac-4842-8444-34707d1d97d8",
+		"name": "Time API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Current Time With empty tz",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Current Time",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/America/New_York",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"America",
+								"New_York"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 May 2024 08:50:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.3"
+						},
+						{
+							"key": "Content-type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "23"
+						}
+					],
+					"cookie": [],
+					"body": "2024-05-07 04:50:50 EDT"
+				}
+			]
+		},
+		{
+			"name": "GET Current Time With Timezone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/Asia/Tomsk",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Asia",
+						"Tomsk"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Current Time",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/America/New_York",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"America",
+								"New_York"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 May 2024 08:50:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.3"
+						},
+						{
+							"key": "Content-type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "23"
+						}
+					],
+					"cookie": [],
+					"body": "2024-05-07 04:50:50 EDT"
+				}
+			]
+		},
+		{
+			"name": "Convert Time",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\": \"12.20.2021 22:21:05\",\n    \"tz\": \"EST\",\n    \"target_tz\": \"GMT\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/convert",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"convert"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Convert Time",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"date\":\"12.20.2021 22:21:05\", \"tz\": \"EST\", \"target_tz\": \"GMT\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/convert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"convert"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 May 2024 08:50:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.3"
+						},
+						{
+							"key": "Content-type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "23"
+						}
+					],
+					"cookie": [],
+					"body": "2021-12-21 03:21:05 GMT"
+				}
+			]
+		},
+		{
+			"name": "Date Difference",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_date\": \"12.06.2024 22:21:05\",\n    \"first_tz\": \"EST\",\n    \"second_date\": \"12:30pm 2024-02-01\",\n    \"second_tz\": \"Europe/Moscow\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/datediff",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"datediff"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Date Difference",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"first_date\":\"12.06.2024 22:21:05\", \"first_tz\": \"EST\", \"second_date\":\"12:30pm 2024-02-01\", \"second_tz\": \"Europe/Moscow\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/datediff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"datediff"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 May 2024 08:51:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.3"
+						},
+						{
+							"key": "Content-type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "10"
+						}
+					],
+					"cookie": [],
+					"body": "26761865.0"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080"
+		}
+	]
+}
